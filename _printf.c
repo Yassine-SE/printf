@@ -1,7 +1,6 @@
 #include "main.h"
 #include "stdio.h"
 #include "stdarg.h"
-#include <unistd.h>
 
 /**
  * _printf - function
@@ -15,7 +14,7 @@ int _printf(const char *format, ...)
 	char *string;
 	char character;
 	int i, j;
-	unsigned int count_out = 0;
+	int count_out = 0;
 	va_list args_l;
 
 	if (!format)
@@ -57,8 +56,6 @@ int _printf(const char *format, ...)
 			count_out++;
 		}
 	}
-
 	va_end(args_l);
-	write(1, '\0', 1);
 	return (count_out);
 }
