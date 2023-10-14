@@ -15,45 +15,45 @@ int _printf(const char *format, ...)
 	char *string;
 	char character;
 	int i, j;
-	char specifiers[] = {'c', 's'};
-	unsigned int count_sp = 0, count_out = 0;
+	unsigned int count_out = 0;
 	va_list args_l;
 
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] == '%')
-		{
-			for (j = 0; i < 2; j++)
-			{
-				if (format[i + 1] == specifiers[j])
-					count_sp++;
-			}
-		}
-	}
-
+	if (!format)
+		return (-1);
+	
 	va_start(args_l, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && format[i + 1] == 'c')
 		{
 			character = va_arg(args_l, int);
-			write(1, &character, 1);
+			_putchar(character);
 			count_out++;
-			i = i + 2;
+			i++;
 		}
-		if (format[i] == '%' && format[i + 1] == 's')
+		else if (format[i] == '%' && format[i + 1] == 's')
 		{
 			string = va_arg(args_l, char*);
 			count_out += _strlen(string);
 			for (j = 0; string[j] != '\0'; j++)
-			{
-				write(1, &string[j], 1);
-			}
-			i = i + 2;
+				_putchar(string[j]);
+			i++;
+		}
+		else if (format[i] == '%' && format[i + 1] == '%')
+		{
+			_putchar(format[i]);
+			count_out++;
+			i++;
+		}
+		else if (format[i] == '%' && (format[i + 1] != 'c' || format[i + 1] == 's' || format[i + 1] != '%'))
+		{
+			_putchar(format[i + 1]);
+			count_out++;
+			i++;
 		}
 		else
 		{
-			write(1, &format[i], 1);
+			_putchar(format[i]);
 			count_out++;
 		}
 	}
