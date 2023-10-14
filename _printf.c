@@ -11,8 +11,7 @@
 */
 int _printf(const char *format, ...)
 {
-	int i, j;
-	char specifiers[] = {'c', 's'};
+	int i;
 	unsigned int count_sp = 0;
 
 	/* Loop through the "format" */
