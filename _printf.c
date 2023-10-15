@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
-
 	va_start(args_l, format);
 	while (*format)
 	{
@@ -45,15 +44,15 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				char *string = va_arg(args_l, char*);
-
 				int str_len = strlen(string);
+
+				if (!string)
+					return (-1);
 				count_out += str_len;
 				write(1, string, str_len);
 			}
 			else
-			{
 				write(1, format, 1);
-			}
 			format++;
 		}
 	}
