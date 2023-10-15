@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int count_out = 0;
 	va_list args_l;
 
-	if (!format)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	va_start(args_l, format);
 	while (*format)
