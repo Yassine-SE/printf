@@ -46,9 +46,13 @@ int _printf(const char *format, ...)
 			{
 				char *string = va_arg(args_l, char*);
 
-				int str_len = _strlen(string);
+				int str_len = strlen(string);
 				count_out += str_len;
 				write(1, string, str_len);
+			}
+			else
+			{
+				write(1, format, 1);
 			}
 			format++;
 		}
