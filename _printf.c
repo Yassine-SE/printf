@@ -44,10 +44,12 @@ int _printf(const char *format, ...)
 			else if (*format == 's')
 			{
 				char *string = va_arg(args_l, char*);
-				int str_len = strlen(string);
+				int str_len = 0;
 
 				if (!string)
-					return (-1);
+					string = "(null)";
+
+				str_len = strlen(string);
 				count_out += str_len;
 				write(1, string, str_len);
 			}
