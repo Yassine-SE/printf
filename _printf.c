@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _printf - function
- * @format: param
- * @...: param
+ * _printf - printf clone function
+ * @format: format dtring
+ * @...: arguments
  *
- * Return: 0 success
+ * Return: number of character printed & -1 if failed
 */
 int _printf(const char *format, ...)
 {
@@ -38,12 +38,14 @@ int _printf(const char *format, ...)
 			else if (*format == 'c')
 			{
 				char character = va_arg(args_l, int);
+
 				count_out++;
 				write(1, &character, 1);
 			}
 			else if (*format == 's')
 			{
 				char *string = va_arg(args_l, char*);
+
 				int str_len = _strlen(string);
 				count_out += str_len;
 				write(1, string, str_len);
