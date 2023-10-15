@@ -9,49 +9,46 @@
 */
 int _printf(const char *format, ...)
 {
-	char *string;
-	char character;
-	int i, j;
 	int count_out = 0;
 	va_list args_l;
 
 	if (!format)
 		return (-1);
-	
+
 	va_start(args_l, format);
-	for (i = 0; format && format[i] != '\0'; i++)
+	while (*format)
 	{
-		if (format[i] == '%' && format[i + 1] == 'c')
+		if (*format != '%')
 		{
-			character = va_arg(args_l, int);
-			_putchar(character);
+			write(1, format, 1);
 			count_out++;
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			string = va_arg(args_l, char*);
-			count_out += _strlen(string);
-			for (j = 0; string[j] != '\0'; j++)
-				_putchar(string[j]);
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] == '%')
-		{
-			_putchar(format[i]);
-			count_out++;
-			i++;
-		}
-		else if (format[i] == '%' && (format[i + 1] != 'c' || format[i + 1] == 's' || format[i + 1] != '%'))
-		{
-			_putchar(format[i + 1]);
-			count_out++;
-			i++;
+			format++;
 		}
 		else
 		{
-			_putchar(format[i]);
-			count_out++;
+			format++;
+			if (*format == '\0')
+				return (count_out);
+
+			if (*format == '%')
+			{
+				count_out++;
+				write(1, format, 1);
+			}
+			else if (*format == 'c')
+			{
+				char character = va_arg(args_l, int);
+				count_out++;
+				write(1, &character, 1);
+			}
+			else if (*format == 's')
+			{
+				char *string = va_arg(args_l, char*);
+				int str_len = _strlen(string);
+				count_out += str_len;
+				write(1, string, str_len);
+			}
+			format++;
 		}
 	}
 	va_end(args_l);
