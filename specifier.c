@@ -12,11 +12,6 @@ int specifier(char *fmt_str, int count, va_list args_l)
 {
 	int count_out = count;
 
-	if (fmt_str[count_out] == ' ' && fmt_str[count_out + 1] == ' ')
-		return (-1);
-	if (fmt_str[count_out] == ' ' && !fmt_str[count_out + 1])
-		return (-1);
-
 	if (*fmt_str == '%')
 	{
 		count_out++;
@@ -36,13 +31,11 @@ int specifier(char *fmt_str, int count, va_list args_l)
 
 		if (!string)
 			string = "(null)";
-
 		str_len = strlen(string);
 		count_out += str_len;
 		write(1, string, str_len);
 	}
 	else
 		write(1, fmt_str, 1);
-
 	return (count_out);
 }
