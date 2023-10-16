@@ -12,9 +12,12 @@ int specifier(char *fmt_str, int count, va_list args_l)
 {
 	int count_out = count;
 
-	if (*fmt_str == ' ')
+	if (fmt_str[count_out] == ' ' && fmt_str[count_out + 1] == ' ')
 		return (-1);
-	else if (*fmt_str == '%')
+	if (fmt_str[count_out] == ' ' && fmt_str[count_out + 1] == '\0')
+		return (-1);
+
+	if (*fmt_str == '%')
 	{
 		count_out++;
 		write(1, fmt_str, 1);
