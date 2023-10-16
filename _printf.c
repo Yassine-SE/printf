@@ -31,6 +31,8 @@ int _printf(const char *format, ...)
 				return (-1);
 			else if (*fmt_str == ' ')
 				fmt_str++;
+				if (*fmt_str == ' ')
+					return (-1);
 			count_out = specifier(fmt_str, count_out, args_l);
 		}
 		fmt_str++;
