@@ -36,9 +36,6 @@ int specifier(char *fmt_str, int count, va_list args_l)
 		write(1, string, str_len);
 	}
 	else
-	{
-		write(1, &"%", 1);
 		write(1, fmt_str, 1);
-	}
 	return (count_out);
 }
