@@ -6,7 +6,7 @@
  * @...: arguments
  *
  * Return: number of character printed & -1 if failed
-*/
+ */
 int _printf(const char *format, ...)
 {
 	int count_out = 0;
