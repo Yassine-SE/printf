@@ -28,8 +28,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			fmt_str++;
-			if (*fmt_str == '\0')
-				break;
+			if (!fmt_str)
+				return (-1);
 
 			count_out = specifier(fmt_str, count_out, args_l);
 		}

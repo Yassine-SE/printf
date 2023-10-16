@@ -14,7 +14,7 @@ int specifier(char *fmt_str, int count, va_list args_l)
 
 	if (fmt_str[count_out] == ' ' && fmt_str[count_out + 1] == ' ')
 		return (-1);
-	if (fmt_str[count_out] == ' ' && fmt_str[count_out + 1] == '\0')
+	if (fmt_str[count_out] == ' ' && !fmt_str[count_out + 1])
 		return (-1);
 
 	if (*fmt_str == '%')
