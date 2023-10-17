@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list args_l;
 
 	if (!format || (format[0] == '%' && !format[1]))
-		return (0);
+		return (-1);
 	va_start(args_l, format);
 	fmt_str = (char *)format;
 	while (*fmt_str)
@@ -27,9 +27,9 @@ int _printf(const char *format, ...)
 		else
 		{
 			fmt_str++;
-			if (!fmt_str)
+			if (!fmt_str || *fmt_str == ' ')
 				return (-1);
-			count_out = specifier(fmt_str, count_out, args_l);
+			count_out = specifier_char(fmt_str, count_out, args_l);
 		}
 		fmt_str++;
 	}

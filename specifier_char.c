@@ -8,7 +8,7 @@
  *
  * Return: Always 0
  */
-int specifier(char *fmt_str, int count, va_list args_l)
+int specifier_char(char *fmt_str, int count, va_list args_l)
 {
 	int count_out = count;
 
@@ -34,11 +34,6 @@ int specifier(char *fmt_str, int count, va_list args_l)
 	{
 		count_out++;
 		write(1, fmt_str, 1);
-	}
-	else if (*fmt_str == ' ' && fmt_str[count_out + 1] == '%')
-	{
-		count_out++;
-		write(1, &"%", 1);
 	}
 	else
 		write(1, fmt_str, 1);

@@ -9,6 +9,7 @@
 #include <stdlib.h>
 
 int _printf(const char *format, ...);
-int specifier(char *fmt_str, int count, va_list args_l);
+int specifier_char(char *fmt_str, int count, va_list args_l);
+int specifier_int(char *fmt_str, int count, va_list args_l);
 
 #endif
