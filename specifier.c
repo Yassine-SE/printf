@@ -30,10 +30,15 @@ int specifier(char *fmt_str, int count, va_list args_l)
 		count_out += str_len;
 		write(1, string, str_len);
 	}
-	else if (*fmt_str == '%' || (*fmt_str == ' ' && fmt_str[count_out] != '%'))
+	else if (*fmt_str == '%')
 	{
 		count_out++;
 		write(1, fmt_str, 1);
+	}
+	else if (*fmt_str == ' ' && fmt_str[count_out + 1] == '%')
+	{
+		count_out++;
+		write(1, &"%", 1);
 	}
 	else
 		write(1, fmt_str, 1);
