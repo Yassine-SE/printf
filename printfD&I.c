@@ -17,5 +17,11 @@ int _printf(const char *format, ...)
 	va_start(args_l, format);
 	fmt_str = (char *)format;
   while (*fmt_str)
-  
+  {
+		if (*fmt_str != '%')
+		{
+			write(1, fmt_str, 1);
+			count_out++;
+		}
+
 }
