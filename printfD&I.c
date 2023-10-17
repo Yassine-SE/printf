@@ -17,4 +17,5 @@ int _printf(const char *format, ...)
 	va_start(args_l, format);
 	fmt_str = (char *)format;
   while (*fmt_str)
+  
 }
