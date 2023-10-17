@@ -23,11 +23,8 @@ int specifier(char *fmt_str, int count, va_list args_l)
 
 		if (!character)
 			return (-1);
-		else
-		{
-			count_out++;
-			write(1, &character, 1);
-		}
+		count_out++;
+		write(1, &character, 1);
 	}
 	else if (*fmt_str == 's')
 	{
@@ -35,7 +32,7 @@ int specifier(char *fmt_str, int count, va_list args_l)
 		int str_len = 0;
 
 		if (!string)
-			string = "(null)";
+			return (-1);
 		str_len = strlen(string);
 		count_out += str_len;
 		write(1, string, str_len);
