@@ -29,8 +29,6 @@ int _printf(const char *format, ...)
 			fmt_str++;
 			if (!fmt_str)
 				return (-1);
-			if (*fmt_str == " ")
-				return (-1);
 			count_out = specifier_char(fmt_str, count_out, args_l);
 		}
 		fmt_str++;
