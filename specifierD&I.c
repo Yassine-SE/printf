@@ -8,7 +8,7 @@
  *
  * Return: Always 0
  */
-int specifier(char *fmt_str, int count, va_list args_l)
+int specifierDI(char *fmt_str, int count, va_list args_l)
 {
 	int count_out = count;
 
