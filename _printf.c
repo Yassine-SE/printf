@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	char *fmt_str;
 	va_list args_l;
 
-	if (!format)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	va_start(args_l, format);
 	fmt_str = (char *)format;
