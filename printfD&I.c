@@ -30,6 +30,6 @@ int _printf(const char *format, ...)
 				return (-1);
 			count_out = specifier(fmt_str, count_out, args_l);
 		}
-    
+    fmt_str++;
 
 }
