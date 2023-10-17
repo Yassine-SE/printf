@@ -16,4 +16,5 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(args_l, format);
 	fmt_str = (char *)format;
+  
 }
