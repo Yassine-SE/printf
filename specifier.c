@@ -21,8 +21,13 @@ int specifier(char *fmt_str, int count, va_list args_l)
 	{
 		char character = va_arg(args_l, int);
 
-		count_out++;
-		write(1, &character, 1);
+		if (!character)
+			return (-1);
+		else
+		{
+			count_out++;
+			write(1, &character, 1);
+		}
 	}
 	else if (*fmt_str == 's')
 	{
