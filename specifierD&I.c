@@ -17,14 +17,14 @@ int specifier(char *fmt_str, int count, va_list args_l)
 		count_out++;
 		write(1, fmt_str, 1);
 	}
-	else if (*fmt_str == 'c')
+	else if (*fmt_str == 'd')
 	{
 		char character = va_arg(args_l, int);
 
 		count_out++;
 		write(1, &character, 1);
 	}
-	else if (*fmt_str == 's')
+	else if (*fmt_str == 'i')
 	{
 		char *string = va_arg(args_l, char*);
 		int str_len = 0;
