@@ -23,5 +23,12 @@ int _printf(const char *format, ...)
 			write(1, fmt_str, 1);
 			count_out++;
 		}
+    else
+		{
+			fmt_str++;
+			if (!fmt_str)
+				return (-1);
+			count_out = specifier(fmt_str, count_out, args_l);
+		}
 
 }
