@@ -34,5 +34,4 @@ int _printf(const char *format, ...)
     }
 	va_end(args_l);
 	return (count_out);
-
 }
