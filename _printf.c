@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			fmt_str++;
-			if (!fmt_str || (*fmt_str == ' ' && fmt_str[count_out + 1] == '%'))
+			if (!fmt_str || (*fmt_str == ' ' && fmt_str[count_out + 1] == ' '))
 				return (-1);
 			count_out = specifier_char(fmt_str, count_out, args_l);
 		}
