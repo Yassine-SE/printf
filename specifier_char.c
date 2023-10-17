@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * specifier - Function
+ * specifier_char - Function
  * @fmt_str: param
  * @count: param
  * @args_l: param
