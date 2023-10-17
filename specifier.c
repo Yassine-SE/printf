@@ -21,8 +21,6 @@ int specifier(char *fmt_str, int count, va_list args_l)
 	{
 		char character = va_arg(args_l, int);
 
-		if (!character)
-			return (-1);
 		count_out++;
 		write(1, &character, 1);
 	}
@@ -32,7 +30,7 @@ int specifier(char *fmt_str, int count, va_list args_l)
 		int str_len = 0;
 
 		if (!string)
-			return (-1);
+			string = "(null)";
 		str_len = strlen(string);
 		count_out += str_len;
 		write(1, string, str_len);
