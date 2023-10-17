@@ -1,4 +1,4 @@
-#include "main.h"
+//#include "main.h"
 
 /**
  * specifier - Function
@@ -8,7 +8,7 @@
  *
  * Return: Always 0
  */
-int specifierDI(char *fmt_str, int count, va_list args_l)
+/*int specifierDI(char *fmt_str, int count, va_list args_l)
 {
 	int count_out = count;
 
@@ -38,4 +38,4 @@ int specifierDI(char *fmt_str, int count, va_list args_l)
 	else
 		write(1, fmt_str, 1);
 	return (count_out);
-}
+}*/

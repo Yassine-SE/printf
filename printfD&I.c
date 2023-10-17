@@ -1,4 +1,4 @@
-#include "main.h"
+//#include "main.h"
 
 /**
  * 
@@ -6,7 +6,7 @@
  * 
  */
 
-int _printf(const char *format, ...)
+/*int _printf(const char *format, ...)
 {
   int count_out = 0;
 	char *fmt_str;
@@ -34,4 +34,4 @@ int _printf(const char *format, ...)
     }
 	va_end(args_l);
 	return (count_out);
-}
+}*/
