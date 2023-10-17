@@ -10,6 +10,5 @@
 
 int _printf(const char *format, ...);
 int specifier(char *fmt_str, int count, va_list args_l);
-//int specifierDI(char *fmt_str, int count, va_list args_l);
 
 #endif
